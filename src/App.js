@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import fetchJsonp from 'fetch-jsonp';
-
-const API_KEY = 'YOUR_BATTUTA_API_KEY';
+import KEYS from './api_key';
 
 class App extends Component {
 
@@ -39,7 +38,7 @@ class App extends Component {
 
     fetchRegions(countryCode) {
         let $this = this;
-        fetchJsonp('http://battuta.medunes.net/api/region/' + countryCode + '/all/?key=' + API_KEY)
+        fetchJsonp('http://battuta.medunes.net/api/region/' + countryCode + '/all/?key=' + KEYS.BATTUTA_API_KEY)
             .then(function(response) {
                 return response.json()
             }).then(function(regions) {
@@ -54,7 +53,7 @@ class App extends Component {
 
     fetchCities(region) {
         let $this = this;
-        fetchJsonp('http://battuta.medunes.net/api/city/'+ $this.state.countryCode +'/search/?region='+ region + '&key=' + API_KEY)
+        fetchJsonp('http://battuta.medunes.net/api/city/'+ $this.state.countryCode +'/search/?region='+ region + '&key=' + KEYS.BATTUTA_API_KEY)
             .then(function(response) {
                 return response.json()
             }).then(function(cities) {
@@ -70,7 +69,7 @@ class App extends Component {
     componentDidMount () {
         let $this = this;
 
-        fetchJsonp('http://battuta.medunes.net/api/country/all/?key=' + API_KEY)
+        fetchJsonp('http://battuta.medunes.net/api/country/all/?key=' + KEYS.BATTUTA_API_KEY)
             .then(function(response) {
                 return response.json()
             }).then(function(json) {
