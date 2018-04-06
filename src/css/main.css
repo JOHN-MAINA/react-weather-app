@@ -1,0 +1,13 @@
+body {
+    height: 100vh;
+    background: url("../images/climate.jpg") no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+#root {
+    background-color: #000000;
+    height: 100vh;
+    opacity: 0.5;
+    overflow-y: scroll;
+}
